@@ -9,5 +9,4 @@ Make a virtual env:
 
 `.\venv\Scripts\activate`
 
-# Dependencies
-`Flask==2.3.2`
+

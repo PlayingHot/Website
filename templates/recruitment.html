@@ -58,23 +58,23 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-lg-auto">
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                                <a class="nav-link click-scroll" href="/#section_1">Home</a>
                             </li>
     
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_2">About</a>
+                                <a class="nav-link click-scroll" href="/#section_2">About</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_3">Sponsors</a>
+                                <a class="nav-link click-scroll" href="/#section_3">Sponsors</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_4">Events</a>
+                                <a class="nav-link click-scroll" href="/#section_4">Events</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link click-scroll" href="#section_5">Contact Us</a>
+                                <a class="nav-link" href="/#section_5">Contact Us</a>
                             </li>
 
                             <!-- <li class="nav-item dropdown">
@@ -189,70 +189,75 @@
                                         </div>
                                     </div>
 
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
                                     <div required="">
-                                    <div class="form-check mb-4">
-                                        <h3>Select Department of Application</h3>
-                                        <br>
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Techincals
-                                        </label>
-                                    </div>
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Creavtives
-                                        </label>
-                                    </div>
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Marketing
-                                        </label>
-                                    </div>
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Logistics
-                                        </label>
-                                    </div>
-
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            RnD
-                                        </label>
-                                    </div>
-
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            SME
-                                        </label>
-                                    </div>
-
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Photography
-                                        </label>
+                                        <select name="Department1" id="department1" class="form-control" style="color: black;">
+                                            <div class="col-lg-12 col-12"> 
+                                                <div class="form-floating">
+                                                    <option disabled selected>1. Select Department of Application</option>
+                                                    {% for department1 in departments %}
+                                                        <option value="{{ department1 }}">{{ department1 }}</option>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </select>
+                                    
+                                        <select name="Department2" id="department2" class="form-control" style="color: black;">
+                                            <div class="col-lg-12 col-12"> 
+                                                <div class="form-floating">
+                                                    <option disabled selected>2. Select Department of Application</option>
+                                                    {% for department2 in departments %}
+                                                        <option value="{{ department2 }}">{{ department2 }}</option>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </select>
+                                    
+                                        <select name="Department3" id="department3" class="form-control" style="color: black;">
+                                            <div class="col-lg-12 col-12"> 
+                                                <div class="form-floating">
+                                                    <option disabled selected>3. Select Department of Application</option>
+                                                    {% for department3 in departments %}
+                                                        <option value="{{ department3 }}">{{ department3 }}</option>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </select>
                                     </div>
                                     
-                                    <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                      
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            PR
-                                        </label>
-                                    </div>
+
+
+                                    <script>
+                                        $(document).ready(function() {
+                                            // When Department1 is changed
+                                            $('#department1').change(function() {
+                                                var selectedOption = $(this).val();
+                                                // Disable the selected option in Department2 and Department3
+                                                $('#department2 option[value="' + selectedOption + '"]').prop('disabled', true);
+                                                $('#department3 option[value="' + selectedOption + '"]').prop('disabled', true);
+                                            });
+                                    
+                                            // When Department2 is changed
+                                            $('#department2').change(function() {
+                                                var selectedOption = $(this).val();
+                                                // Disable the selected option in Department1 and Department3
+                                                $('#department1 option[value="' + selectedOption + '"]').prop('disabled', true);
+                                                $('#department3 option[value="' + selectedOption + '"]').prop('disabled', true);
+                                            });
+                                    
+                                            // When Department3 is changed
+                                            $('#department3').change(function() {
+                                                var selectedOption = $(this).val();
+                                                // Disable the selected option in Department1 and Department2
+                                                $('#department1 option[value="' + selectedOption + '"]').prop('disabled', true);
+                                                $('#department2 option[value="' + selectedOption + '"]').prop('disabled', true);
+                                            });
+                                        });
+                                    </script>
+                                    
+
+
 
                                     <div class="col-lg-12 col-12"> 
                                         <div class="form-floating">

@@ -58,7 +58,7 @@ def gmail(email_list, content):
     email_sender = 'dhruvpython10@gmail.com'
     email_password = 'wqtugdosslilokwg'
 
-    subject = 'Test'
+    subject = 'Confirmation From ACM.'
     body = content
     context = ssl.create_default_context()
 

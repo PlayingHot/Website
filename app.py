@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request, redirect
+import smtplib
+import ssl
+from email.message import EmailMessage
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
@@ -46,9 +49,31 @@ def submit():
     print(name,course,number,email,link, department1, department2, department3)
     row = [name, course, number, email, link, department1, department2, department3]
     sheet.append_row(row)
-
+    lis=[email]
+    cont='ACM Test2'
+    gmail(lis,cont)
     return redirect('/')
+
+def gmail(email_list, content):
+    email_sender = 'dhruvpython10@gmail.com'
+    email_password = 'wqtugdosslilokwg'
+
+    subject = 'Test'
+    body = content
+    context = ssl.create_default_context()
+
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['Subject'] = subject
+    em.set_content(body)
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_sender, email_password)
+        for email in  email_list:
+            em['To'] = email
+            smtp.sendmail(email_sender, email, em.as_string())
+            del em['To']
+    return None
+
 
 if __name__ == "__main__":
     app.run(debug=True)
-    

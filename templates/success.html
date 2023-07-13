@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Success</title>
+    <title>Success Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript">
-        setTimeout(function () {
+      setTimeout(function () {
             window.location.href = "/";
-        }, 3000);
+        }, 3000);  
     </script>
 </head>
+<style>
+    body {
+        height: 100%;
+        width: 100%;
+        background-image: url(../static/images/b5.jpg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0;
+    }
+
+    .success_container {
+        text-align: center;
+    }
+
+    .success_container img {
+        padding: 20px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .success_container h2 {
+        color: #ffffff;
+    }
+
+    .success_container h1 {
+        color: #22bb33;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .success_container p {
+        color: #ffffff;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+</style>
 <body>
+<div class="success_container">
+    <img src="../static/images/logo.png" alt="logo">
+    <h2>ACM MPSTME</h2>
     <h1>Success!</h1>
-    <p>This page will redirect to index.html in 5 seconds.</p>
+    <p>You will be redirected in 5 seconds.</p>
+</div>
 </body>
+</html>
 </html>

@@ -1140,6 +1140,37 @@ strong {
   color: var(--light-color);
 }
 
+.social-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+.social-icons li {
+  margin-right: 30px;
+}
+.social-icons li:last-child {
+  margin-right: 0;
+}
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2); /* Apply a scale transformation on hover */
+}
+
 
 /*---------------------------------------
   RESPONSIVE STYLES               
